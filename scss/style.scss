@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700%7COpen+Sans:300,400,700&display=swap');
+
+@import 'normalize';
+// @import 'float-grid';
+@import 'flex-grid';
+@import 'mixin';
+
+$text: #60606e;
+$brand: #7beec7;
+
+* {
+	box-sizing: border-box;
+}
+
+html {
+	font: 10px/1.6 "Open Sans", serif;
+	height: 100%;
+}
+
+body {
+	font-size: 1.4rem;
+	color: $text;
+	min-height: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	text-transform: uppercase;
+	font-family: Montserrat, sans-serif;
+}
+
+.section {
+	padding: 70px 0;
+	&:first-child {
+		padding-top: 140px;
+	}
+	&--nopadding {
+		&,
+		&:first-child {
+		padding: 0;
+		}
+	}
+	&__subtitle {
+		font-size: 1.4rem;
+	}
+	&__heading {
+		max-width: 720px;
+		margin: 0 auto;
+		text-align: center;
+		margin-bottom: 70px;
+	}
+	&__title {
+		font-size: 3rem;
+		margin: 0;
+		line-height: 1;
+		position: relative;
+		display: inline-block;
+		&:before {
+			content: '';
+			position: absolute;
+			z-index: -1;
+			top: 50%;
+			left: 0;
+			width: 70px;
+			height: 20px;
+			background-color: $brand;
+		}
+	}
+	&__text {
+		
+	}
+}
+
+.benefit {
+	&__title {
+		font-size: 1.8rem;
+	}
+}
+
+.person {
+	padding-top: 130%;
+	position: relative;
+	overflow: hidden;
+	margin-bottom: 2 * $grid-gap;
+	&__img {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		min-width: 100%;
+		min-height: 100%;
+	}
+}
+
+footer {
+	background-color: $brand;
+	padding: 50px 0;
+	color: #fff;
+	.section__title {
+		display: block;
+		margin-bottom: 2 * $grid-gap;
+	}
+}
+
+.btn {
+	text-transform: uppercase;
+	color: #fff;
+	background-color: $brand;
+	border: 2px solid $brand;
+	padding: 15px 40px;
+	font-weight: 700;
+	font-size: 1.2em;
+	text-decoration: none;
+	display: inline-block;
+	@include hover {
+		background-color: #fff;
+		color: $brand;
+	}
+	&--inversed {
+		background-color: #fff;
+		border-color: #fff;
+		color: $brand;
+		@include hover {
+		background-color: $brand;
+		color: #fff;
+		}
+	}
+}
+
+.form {
+	background-color: #fff;
+	padding: $grid-gap 2 * $grid-gap 2 * $grid-gap;
+	color: $text;
+	&__title {
+		font-size: 2.4rem;
+		line-height: 1;
+	}
+	&__group {
+		display: flex;
+		justify-content: stretch;
+		align-items: stretch;
+	}
+		&__input {
+			padding: $grid-gap;
+			border: 2px solid inherit;
+			flex: 1 0 auto;
+			outline: none;
+			// width: 70%;
+			&::placeholder {
+				color: #cdcdcd;
+				text-transform: uppercase;
+				@include tr(all);
+			}
+			&:focus {
+				border-color: $brand;
+				&::placeholder {
+					padding-left: 100%;
+				}
+			}
+		}
+}
